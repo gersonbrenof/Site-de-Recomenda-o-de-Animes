@@ -1,0 +1,89 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>Cadastrar</title>
+    <style>
+        body {
+            background-image: url("https://files.passeidireto.com/e7bed11f-b15b-4013-a2f5-c3d8407073ce/e7bed11f-b15b-4013-a2f5-c3d8407073ce.jpeg");
+            background-size: cover; /* Garante que a imagem cubra todo o corpo */
+            background-position: center; /* Centraliza a imagem no corpo */
+            background-repeat: no-repeat; /* Evita a repetição da imagem */
+            background-attachment: fixed; /* Mantém a imagem fixa enquanto a página é rolada */
+            /* Outros estilos de acordo com suas preferências */
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 500px; /* Largura do cartão aumentada */
+            padding: 20px; /* Adicionado preenchimento para melhor espaçamento */
+            border-radius: 15px; /* Adicionado raio da borda para cantos arredondados */
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* Adicionado uma sombra para profundidade */
+            background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo branca com transparência */
+        }
+
+        .tela-cadastro {
+            background-color: rgba(0, 0, 0, 0.2); /* Cor de fundo preta com transparência */
+            border-radius: 15px; /* Adicionado raio da borda para cantos arredondados */
+            padding: 20px; /* Adicionado preenchimento para melhor espaçamento */
+        }
+
+        .card-title {
+            color: #007bff; /* Cor do título do cartão */
+        }
+
+        form {
+            margin-top: 20px; /* Margem superior adicionada para o formulário */
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="submit"] {
+            width: 100%; /* Faz os campos de texto e o botão de envio ocuparem toda a largura */
+            margin-bottom: 10px; /* Margem inferior adicionada para espaçamento entre os elementos */
+            padding: 15px; /* Preenchimento aumentado para uma aparência maior */
+            border: 1px solid #ced4da; /* Adicionada uma borda sutil */
+            border-radius: 8px; /* Adicionado raio da borda para cantos arredondados */
+            background-color: rgba(255, 255, 255, 0.8); /* Cor de fundo branca com transparência */
+        }
+
+        input[type="submit"] {
+            background-color: #007bff; /* Cor de fundo do botão */
+            color: #fff; /* Cor do texto do botão */
+            cursor: pointer; /* Cursor de ponteiro adicionado ao passar o mouse */
+        }
+
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 15px; /* Margem superior aumentada para espaçamento */
+            color: #007bff; /* Cor do link */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card tela-cadastro">
+            <div class="card-body" style="background-color: rgba(255, 255, 255, 0.7);">
+                <h1 class="card-title text-center">Informe suas informações corretamente</h1>
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="btn btn-primary btn-block">Cadastrar</button>
+                </form>
+                <p class="text-center mt-3">
+                    Já tem uma conta? <a href="{% url 'login' %}">Faça login</a>
+                </p>
+            </div>
+        </div>
+    </div>
